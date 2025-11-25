@@ -81,5 +81,6 @@ erDiagram
     DOCK {
         int id PK
         string location
+        string volume
     }
 ```
