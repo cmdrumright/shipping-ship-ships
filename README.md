@@ -1,17 +1,17 @@
-# DeShawn's Dog Walking
+# Shipping Ship Ships 
 
 ## Dependancy Graph
 ```mermaid
 flowchart TD
     main["main"]
-    Docks(["Docks"])
+    DockList(["DockList"])
     Haulers(["Haulers"])
     Ships(["Ships"])
     database[("database")]
-    main-->Docks
+    main-->DockList
     main-->Haulers
     main-->Ships
-    Docks-->database
+    DockList-->database
     Haulers-->database
     Ships-->database
 ```
@@ -20,56 +20,45 @@ flowchart TD
 ```mermaid
 sequenceDiagram
     participant main
-    participant Walkers
-    participant CityList
-    participant RegisteredPets
-    participant Assignments
+    participant DockList
+    participant HaulerList
+    participant ShipList
     participant Database
-    main->>Walkers: I need the function reference for generating HTML for walkers
-    Walkers->>DOM: addEventListener for clicks
-    Walkers-->>main: Gladly.
-    main->>CityList: I need the function reference for generating HTML for cities
-    CityList->>DOM: addEventListener for clicks
-    CityList-->>main: Sure! Here you go.
-    main->>RegisteredPets: Provide the HTML generation function for pets
-    RegisteredPets->>DOM: addEventListener for clicks
-    RegisteredPets-->>main: Here is my wonderful RegisteredPets function.
-    main->>Assignments: May I have the HTML generation function for assignments
-    Assignments-->>main: Absolutely.
+    main->>DockList: I need the function reference for generating HTML for DockList
+    DockList->>DOM: addEventListener for clicks
+    DockList-->>main: Gladly.
+    main->>HaulerList: I need the function reference for generating HTML for HaulerList
+    HaulerList->>DOM: addEventListener for clicks
+    HaulerList-->>main: Sure! Here you go.
+    main->>ShipList: Provide the HTML generation function for ShipList
+    ShipList->>DOM: addEventListener for clicks
+    ShipList-->>main: Here is my wonderful ShipList function.
     main->>DOM: get DOM element "container"
     DOM-->>main: here is the container element
-    Note right of main: Invoke CityList function
-    main->>CityList: invoke CityList function
-    CityList-->>Database: I need all the city objects
-    Database-->>CityList: Here's a copy of them
+    Note right of main: Invoke HaulerList function
+    main->>HaulerList: invoke HaulerList function
+    HaulerList-->>Database: I need all the Hauler objects
+    Database-->>HaulerList: Here's a copy of them
     loop
-        CityList->>CityList: Convert each object to an `<li>`
+        HaulerList->>HaulerList: Convert each object to an `<li>`
     end
-    CityList-->>main: Here's all the generated HTML
-    Note right of main: Invoke Walkers function
-    main->>Walkers: invoke Walkers function
-    Walkers-->>Database: I need all the walker objects
-    Database-->>Walkers: Here's a copy of them
+    HaulerList-->>main: Here's all the generated HTML
+    Note right of main: Invoke DockList function
+    main->>DockList: invoke DockList function
+    DockList-->>Database: I need all the Dock objects
+    Database-->>DockList: Here's a copy of them
     loop
-        Walkers->>Walkers: Convert each object to an `<li>`
+        DockList->>DockList: Convert each object to an `<li>`
     end
-    Walkers-->>main: Here's all the generated HTML
-    Note right of main: Invoke RegisteredPets function
-    main->>RegisteredPets: Invoke RegisteredPets function
-    RegisteredPets-->>Database: I need all the pet objects
-    Database-->>RegisteredPets: Here's a copy of them
+    DockList-->>main: Here's all the generated HTML
+    Note right of main: Invoke ShipList function
+    main->>ShipList: Invoke ShipList function
+    ShipList-->>Database: I need all the ship objects
+    Database-->>ShipList: Here's a copy of them
     loop
-        RegisteredPets->>RegisteredPets: Convert each object to an `<li>`
+        ShipList->>ShipList: Convert each object to an `<li>`
     end
-    RegisteredPets-->>main: Here's all the generated HTML
-    Note right of main: Invoke Assignments function
-    main->>Assignments: Invoke Assignments function
-    Assignments-->>Database: I need all the assignment objects
-    Database-->>Assignments: Here's a copy of them
-    loop
-        Assignments->>Assignments: Convert each object to an `<li>`
-    end
-    Assignments-->>main: Here's all the generated HTML
+    ShipList-->>main: Here's all the generated HTML
     Note right of main: Update the innerHTML of the <main> element in the DOM.
     main->>DOM: assign innerHTML of main element as generated HTML
 ```
