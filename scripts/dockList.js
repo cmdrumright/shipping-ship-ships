@@ -2,7 +2,6 @@ import { getDocks } from "./database.js"
 
 
 export const dockList = () => {
-    debugger
     const docks = getDocks()
 
     let docksHTML = "<ul>"
