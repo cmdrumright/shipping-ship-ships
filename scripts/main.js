@@ -1,5 +1,6 @@
 import { dockList } from "./dockList.js"
 import { haulerList } from "./haulerList.js"
+import { shipList } from "./shipList.js"
 
 const mainContainer = document.querySelector("#container")
 
@@ -13,6 +14,11 @@ const applicationHTML = `
     <section class="detail--column list details__haulers">
         <h2>Haulers</h2>
         ${haulerList()}
+    </section>
+    </section>
+    <section class="detail--column list details__ships">
+        <h2>Shipping Ships</h2>
+        ${shipList()}
     </section>
 </article>
 `
